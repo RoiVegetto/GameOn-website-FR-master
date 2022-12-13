@@ -32,7 +32,7 @@ img {
 
 .topnav {
   overflow: hidden;
-  margin: 3.5%;
+  margin: 3.5% 0 3.5% 17px;
 }
 .header-logo {
     float: left;
@@ -40,29 +40,31 @@ img {
 .main-navbar {
     float: right;
 }
+/* ajout de la barre sous les span */
+.main-navbar span {
+  border-bottom: solid 2px white;
+}
+
 .topnav a {
   float: left;
   display: block;
   color: #000000;
   text-align: center;
   padding: 12px 12px;
-  margin: 5px;
   text-decoration: none;
   font-size: 20px;
   font-family: Roboto, sans-serif;
+
 }
 
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  margin: 0 15px;
 }
 
-.topnav a.active {
-  background-color: #ff0000;
-  color: #ffffff;
-  border-radius: 15px;
-}
+/* Suppression du css acceuil */
 
 .topnav .icon {
   display: none;
@@ -101,18 +103,15 @@ img {
   }
 } 
 
+/* retrait des padding, correction padding-top */
 main {
   font-size: 130%;
   font-weight: bolder;
   color: black;
-  padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding-top: 1.5vw;
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -405,7 +404,6 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -413,14 +411,15 @@ input[data-error]::after {
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
+/* correction padding */
 .hero-content {
-  padding: 51px 67px;
+  padding: 51px 50px;
+  width: 375px;
   grid-column: span 4;
   background: #232323;
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
 }
 .hero-content::after {
   content: "";
@@ -435,8 +434,9 @@ input[data-error]::after {
   position: relative;
   z-index: 1;
 }
+/* correction font-size */
 .hero-headline {
-  font-size: 6rem;
+  font-size: 5.5rem;
   font-weight: normal;
   white-space: nowrap;
 }
@@ -454,8 +454,11 @@ input[data-error]::after {
   margin: 0;
   margin-top: 59px;
 }
+/* correction taille de l'image */
 .hero-img {
-  grid-column: span 8;
+  grid-column: span 7;
+  height: 590px;
+  width: 680px;
 }
 .hero-img img {
   width: 100%;

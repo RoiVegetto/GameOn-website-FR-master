@@ -6,11 +6,11 @@ const formValidity = {
   quantity: false,
 };
 
-const formFirst = document.querySelector('first');
-const formLast = document.querySelector('last');
-const formEmail = document.querySelector('email');
-const formBirthdate = document.querySelector('birthdate');
-const formQuantity = document.querySelector('quantity');
+const formFirst = document.querySelector('#first');
+const formLast = document.querySelector('#last');
+const formEmail = document.querySelector('#email');
+const formBirthdate = document.querySelector('#birthdate');
+const formQuantity = document.querySelector('#quantity');
 
 /**
  *

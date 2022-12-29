@@ -554,7 +554,9 @@ footer {
   }
 }
 
-
+.modal-validate {
+  display: none;
+}
 
 @keyframes modalopen {
   from {

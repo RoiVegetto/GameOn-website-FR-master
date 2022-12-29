@@ -1,35 +1,22 @@
+const modalBody = document.getElementsByClassName('modal-body');
+const modalValidate = document.getElementsByClassName('modal-validate');
+
 // Prénom
 
 const formFirst = document.getElementById('first');
 const errorFirst = document.getElementById('errorFirst');
 
-function succesfullFirst() {
-  errorFirst.style.display = 'none';
-  formFirst.classList.remove('error-border');
-  return true;
-}
-
-function failedFirst() {
-  errorFirst.style.display = 'block';
-  formFirst.classList.add('error-border');
-  return false;
-}
-
-function emptyFirst() {
+function validationFirst() {
   if (
     formFirst.value.length < 2 ||
-    !formFirst.value.match(/^[A-Za-z-éèêàâäiîçô]{2,}$/)
+    !formFirst.value.match(/^[A-Za-z-éèêàâäiîçô\s]{2,}$/)
   ) {
-    return failedFirst();
-  } else {
-    return succesfullFirst();
-  }
-}
-
-function validationFirst() {
-  if (!emptyFirst()) {
+    errorFirst.style.display = 'block';
+    formFirst.classList.add('error-border');
     return false;
   } else {
+    errorFirst.style.display = 'none';
+    formFirst.classList.remove('error-border');
     return true;
   }
 }
@@ -39,33 +26,17 @@ function validationFirst() {
 const formLast = document.getElementById('last');
 const errorLast = document.getElementById('errorLast');
 
-function succesfullLast() {
-  errorLast.style.display = 'none';
-  formLast.classList.remove('error-border');
-  return true;
-}
-
-function failedLast() {
-  errorLast.style.display = 'block';
-  formLast.classList.add('error-border');
-  return false;
-}
-
-function emptyLast() {
+function validationLast() {
   if (
     formLast.value.length < 2 ||
     !formLast.value.match(/^[A-Za-z-éèêàâäiîçô]{2,}$/)
   ) {
-    return failedLast();
-  } else {
-    return succesfullLast();
-  }
-}
-
-function validationLast() {
-  if (!emptyLast()) {
+    errorLast.style.display = 'block';
+    formLast.classList.add('error-border');
     return false;
   } else {
+    errorLast.style.display = 'none';
+    formLast.classList.remove('error-border');
     return true;
   }
 }
@@ -75,34 +46,16 @@ function validationLast() {
 const formEmail = document.getElementById('email');
 const errorEmail = document.getElementById('errorEmail');
 
-function succesfullEmail() {
-  errorEmail.style.display = 'none';
-  formEmail.classList.remove('error-border');
-  return true;
-}
-
-function failedEmail() {
-  errorEmail.style.display = 'block';
-  formEmail.classList.add('error-border');
-  return false;
-}
-
-function emptyEmail() {
-  if (
-    !formEmail.value.match(
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
-    )
-  ) {
-    return failedEmail();
-  } else {
-    return succesfullEmail();
-  }
-}
-
 function validationEmail() {
-  if (!emptyEmail()) {
+  if (
+    !formEmail.value.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/)
+  ) {
+    errorEmail.style.display = 'block';
+    formEmail.classList.add('error-border');
     return false;
   } else {
+    errorEmail.style.display = 'none';
+    formEmail.classList.remove('error-border');
     return true;
   }
 }
@@ -112,34 +65,18 @@ function validationEmail() {
 const formBirthdate = document.getElementById('birthdate');
 const errorBirthdate = document.getElementById('errorBirthdate');
 
-function succesfullBirthdate() {
-  errorBirthdate.style.display = 'none';
-  formBirthdate.classList.remove('error-border');
-  return true;
-}
-
-function failedBirthdate() {
-  errorBirthdate.style.display = 'block';
-  formBirthdate.classList.add('error-border');
-  return false;
-}
-
-function emptyBirthdate() {
+function validationBirthdate() {
   if (
     !formBirthdate.value.match(
       /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
     )
   ) {
-    return failedBirthdate();
-  } else {
-    return succesfullBirthdate();
-  }
-}
-
-function validationBirthdate() {
-  if (!emptyBirthdate()) {
+    errorBirthdate.style.display = 'block';
+    formBirthdate.classList.add('error-border');
     return false;
   } else {
+    errorBirthdate.style.display = 'none';
+    formBirthdate.classList.remove('error-border');
     return true;
   }
 }
@@ -149,30 +86,14 @@ function validationBirthdate() {
 const formQuantity = document.getElementById('quantity');
 const errorQuantity = document.getElementById('errorQuantity');
 
-function succesfullQuantity() {
-  errorQuantity.style.display = 'none';
-  formQuantity.classList.remove('error-border');
-  return true;
-}
-
-function failedQuantity() {
-  errorQuantity.style.display = 'block';
-  formQuantity.classList.add('error-border');
-  return false;
-}
-
-function emptyQuantity() {
-  if (!formQuantity.value.match(/^[0-9]$/)) {
-    return failedQuantity();
-  } else {
-    return succesfullQuantity();
-  }
-}
-
 function validationQuantity() {
-  if (!emptyQuantity()) {
+  if (formQuantity.value < 0 || formQuantity.value === '') {
+    errorQuantity.style.display = 'block';
+    formQuantity.classList.add('error-border');
     return false;
   } else {
+    errorQuantity.style.display = 'none';
+    formQuantity.classList.remove('error-border');
     return true;
   }
 }
@@ -181,24 +102,16 @@ function validationQuantity() {
 
 const errorLocation = document.getElementById('errorLocation');
 
-function successfullLocation() {
-  errorLocation.style.display = 'none';
-  return true;
-}
-
-function failedLocation() {
-  errorLocation.style.display = 'block';
-  return false;
-}
-
 function validationLocation() {
   const formlocations = document.querySelectorAll(
     'input[name="location"]:checked'
   );
   if (formlocations.length > 0) {
-    return successfullLocation();
+    errorLocation.style.display = 'none';
+    return true;
   } else {
-    return failedLocation();
+    errorLocation.style.display = 'block';
+    return false;
   }
 }
 
@@ -206,34 +119,18 @@ function validationLocation() {
 
 const errorCondition = document.getElementById('errorCondition');
 
-function successfullCondition() {
-  errorCondition.style.display = 'none';
-  return true;
-}
-
-function failedCondition() {
-  errorCondition.style.display = 'block';
-  return false;
-}
-
 function validationCondition() {
   const formCondition = document.querySelectorAll(
     'input[name="condition"]:checked'
   );
   if (formCondition.length > 0) {
-    return successfullCondition();
+    errorCondition.style.display = 'none';
+    return true;
   } else {
-    return failedCondition();
+    errorCondition.style.display = 'block';
+    return false;
   }
 }
-
-/*function () {
-  if (!emptyLocation()) {
-    return false;
-  } else {
-    return true;
-  }
-}*/
 
 function validate() {
   let checkIsFirstnameValid = validationFirst();
@@ -243,6 +140,7 @@ function validate() {
   let checkIsQuantityValid = validationQuantity();
   let checkIsLocationValid = validationLocation();
   let checkIsConditionValid = validationCondition();
+
   return (
     checkIsFirstnameValid &&
     checkIsLastnameValid &&
@@ -253,6 +151,22 @@ function validate() {
     checkIsConditionValid
   );
 }
+
+/*function changeModal() {
+  modalBody.style.display = 'none';
+  modalValidate.style.display = 'flex';
+}
+
+function combinedFunc() {
+  if (validate()) {
+    changeModal();
+  }
+}
+combinedFunc();
+
+/*function validateModal() {
+  validate
+}*/
 
 /* if (!validationFirst(first.value)) {
     return false;

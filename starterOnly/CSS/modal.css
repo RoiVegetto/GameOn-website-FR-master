@@ -14,7 +14,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -179,6 +178,23 @@ main {
   width: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
+}
+
+@media screen and (max-width: 910px) {
+  .bground {
+    background-color: #ffffff00;
+    top: 60px;
+  }
+}
+
+.finish {
+  bottom: 15px;
+  position: absolute;
+
+}
+
+#modal-validate {
+
 }
 
 .content {
@@ -554,8 +570,25 @@ footer {
   }
 }
 
-.modal-validate {
+#form {
+  display: block;
+}
+
+.modal-validate_h2 {
+  top: 36%;
+  position: absolute;
+  padding: 40px;
+}
+
+#modal-validate {
   display: none;
+  justify-content: center;
+}
+
+#modal-validate p {
+  margin: 50% 0;
+  font-size: 35px;
+  text-align: center;
 }
 
 @keyframes modalopen {

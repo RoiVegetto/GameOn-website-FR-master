@@ -59,7 +59,7 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="return checkValidation();"
               novalidate
               id="form"
             >
@@ -208,19 +208,20 @@
               </div>
               <input
                 class="btn-submit"
-                type="submit"
                 class="button"
                 value="C'est parti"
+                type="submit"
+                id="go"
               />
             </form>
           </div>
-          <div class="modal-validate">
-            <h2>Merci ! Votre réservation a été reçue.</h2>
-            <input
-                class="btn-submit button"
+            <div id="modal-validate">
+              <h2 class="modal-validate_h2">Merci ! Votre réservation a été reçue.</h2>
+              <input
+                class="btn-submit button finish"
                 type="submit"
                 value="Fermer">
-          </div>
+            </input>
         </div>
       </div>
     </main>

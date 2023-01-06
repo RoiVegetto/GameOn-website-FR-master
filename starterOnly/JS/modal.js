@@ -13,6 +13,7 @@ const modalBtn = document.querySelectorAll('.modal-btn');
 const formData = document.querySelectorAll('.formData');
 const modalClose = document.querySelector('span.close');
 const form = document.getElementById('form');
+const finish = document.querySelector('.finish');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener('click', launchModal));
@@ -23,6 +24,7 @@ function launchModal() {
 }
 
 modalClose.addEventListener('click', closeModal);
+finish.addEventListener('click', closeModal);
 
 function closeModal() {
   const error = document.querySelectorAll('.error');
@@ -37,4 +39,6 @@ function closeModal() {
 
   modalbg.removeAttribute('style');
   form.reset();
+  formulary.style.visibility = 'visible';
+  modalValidate.style.display = 'none';
 }

@@ -1,5 +1,5 @@
-const modalBody = document.getElementsByClassName('modal-body');
-const modalValidate = document.getElementsByClassName('modal-validate');
+const formulary = document.getElementById('form');
+const modalValidate = document.getElementById('modal-validate');
 
 // Prénom
 
@@ -87,7 +87,7 @@ const formQuantity = document.getElementById('quantity');
 const errorQuantity = document.getElementById('errorQuantity');
 
 function validationQuantity() {
-  if (formQuantity.value < 0 || formQuantity.value === '') {
+  if (formQuantity.value < 0 || formQuantity.value > 100) {
     errorQuantity.style.display = 'block';
     formQuantity.classList.add('error-border');
     return false;
@@ -132,6 +132,10 @@ function validationCondition() {
   }
 }
 
+formulary.addEventListener('submit', function (ev) {
+  ev.preventDefault();
+});
+
 function validate() {
   let checkIsFirstnameValid = validationFirst();
   let checkIsLastnameValid = validationLast();
@@ -152,65 +156,13 @@ function validate() {
   );
 }
 
-/*function changeModal() {
-  modalBody.style.display = 'none';
-  modalValidate.style.display = 'flex';
-}
-
-function combinedFunc() {
+function checkValidation() {
   if (validate()) {
-    changeModal();
+    // Masquer la modale
+    formulary.style.visibility = 'hidden';
+    // Afficher l'élément souhaité à la place de la modale
+
+    modalValidate.style.display = 'flex';
+  } else {
   }
 }
-combinedFunc();
-
-/*function validateModal() {
-  validate
-}*/
-
-/* if (!validationFirst(first.value)) {
-    return false;
-  } else if (!validationLast(last.value)) {
-    return false;
-  } else if (!validationEmail(email.value)) {
-    return false;
-  } else if (!validationBirthdate(birthdate.value)) {
-    return false;
-  } else if (!validationQuantity(quantity.value)) {
-    return false;
-  } else if (!validationLocation()) {
-    return false;
-  }
-  return true;
-
-function checkLast() {
-  if (formLast.value.length >= 2) {
-    formValidity.last = true;
-  } else {
-    formValidity.last = false;
-  }
-}
-
-function checkEmail() {
-  if (value.match(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/)) {
-    formValidity.email = true;
-  } else {
-    formValidity.email = false;
-  }
-}
-
-function checkBirthdate() {
-  if () {
-    formValidity.birthdate = true;
-  } else {
-    formValidity.birthdate = false;
-  }
-}
-
-function checkQuantity() {
-  if () {
-    formValidity.quantity = true;
-  } else {
-    formValidity.quantity = false;
-  }
-}*/

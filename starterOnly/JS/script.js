@@ -1,10 +1,19 @@
 const formulary = document.getElementById('form');
 const modalValidate = document.getElementById('modal-validate');
-
-// Prénom
-
 const formFirst = document.getElementById('first');
 const errorFirst = document.getElementById('errorFirst');
+const formLast = document.getElementById('last');
+const errorLast = document.getElementById('errorLast');
+const formEmail = document.getElementById('email');
+const errorEmail = document.getElementById('errorEmail');
+const formBirthdate = document.getElementById('birthdate');
+const errorBirthdate = document.getElementById('errorBirthdate');
+const formQuantity = document.getElementById('quantity');
+const errorQuantity = document.getElementById('errorQuantity');
+const errorLocation = document.getElementById('errorLocation');
+const errorCondition = document.getElementById('errorCondition');
+
+// Prénom
 
 function validationFirst() {
   if (
@@ -23,9 +32,6 @@ function validationFirst() {
 
 // Nom de famille
 
-const formLast = document.getElementById('last');
-const errorLast = document.getElementById('errorLast');
-
 function validationLast() {
   if (
     formLast.value.length < 2 ||
@@ -43,9 +49,6 @@ function validationLast() {
 
 // Email
 
-const formEmail = document.getElementById('email');
-const errorEmail = document.getElementById('errorEmail');
-
 function validationEmail() {
   if (
     !formEmail.value.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/)
@@ -61,9 +64,6 @@ function validationEmail() {
 }
 
 // Birthdate
-
-const formBirthdate = document.getElementById('birthdate');
-const errorBirthdate = document.getElementById('errorBirthdate');
 
 function validationBirthdate() {
   if (
@@ -83,11 +83,8 @@ function validationBirthdate() {
 
 // Quantity
 
-const formQuantity = document.getElementById('quantity');
-const errorQuantity = document.getElementById('errorQuantity');
-
 function validationQuantity() {
-  if (formQuantity.value < 0 || formQuantity.value > 100) {
+  if (formQuantity.value < 1 || formQuantity.value > 100) {
     errorQuantity.style.display = 'block';
     formQuantity.classList.add('error-border');
     return false;
@@ -99,8 +96,6 @@ function validationQuantity() {
 }
 
 // Location
-
-const errorLocation = document.getElementById('errorLocation');
 
 function validationLocation() {
   const formlocations = document.querySelectorAll(
@@ -116,8 +111,6 @@ function validationLocation() {
 }
 
 // Conditions d'utilisation
-
-const errorCondition = document.getElementById('errorCondition');
 
 function validationCondition() {
   const formCondition = document.querySelectorAll(

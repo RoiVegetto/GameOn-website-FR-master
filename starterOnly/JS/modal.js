@@ -26,6 +26,12 @@ function launchModal() {
 modalClose.addEventListener('click', closeModal);
 finish.addEventListener('click', closeModal);
 
+/**
+ * La fonction closeModal sert a fermer la modale au clic du boutton X
+ * Elle retire les bordures rouge qui sont présente lors d'un mauvais remplissage de champ
+ * Elle retire ce qui est mis dans les champs
+ */
+
 function closeModal() {
   const error = document.querySelectorAll('.error');
   error.forEach(function (element) {

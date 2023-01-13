@@ -19,10 +19,10 @@ const errorLocation = document.getElementById('errorLocation');
 const errorCondition = document.getElementById('errorCondition');
 
 /**
- * La fonction validationFirst va controler le champ prénom 
+ * La fonction validationFirst va controler le champ prénom
  * Si le prénom donné est inférieur a 2 caractère, ou s'il est composé d'autre chose qu'une lettre, alors il sera refusé
  * Dans le cas ou tout est bon, nous mettrons la fonction sur true pour plus tard
- * @returns 
+ * @returns
  */
 
 function validationFirst() {
@@ -42,7 +42,7 @@ function validationFirst() {
 
 /**
  * Nous avons exactement la même chose pour le nom que pour le prénom
- * @returns 
+ * @returns
  */
 
 function validationLast() {
@@ -62,9 +62,9 @@ function validationLast() {
 
 /**
  * Ici nous vérifions le mail, on inclu donc une regex qui a pour but de demander certains caractère précis
- * Pour que le mail soit valide il doit y avoir au moins un @ et un . comme dans toutes les adresses mail 
+ * Pour que le mail soit valide il doit y avoir au moins un @ et un . comme dans toutes les adresses mail
  * Exemple : xxxxx@xx.xx
- * @returns 
+ * @returns
  */
 
 function validationEmail() {
@@ -82,9 +82,9 @@ function validationEmail() {
 }
 
 /**
- * Ici nous devons renseigner notre age, une regex comme pour les mails plus haut est mise en place 
- * Celle ci présente une date 
- * @returns 
+ * Ici nous devons renseigner notre age, une regex comme pour les mails plus haut est mise en place
+ * Celle ci présente une date
+ * @returns
  */
 
 function validationBirthdate() {
@@ -105,15 +105,16 @@ function validationBirthdate() {
 
 /**
  * Ici nous avons besoin d'une quantité, comprise entre 0 et 100
- * L'addEventListener nous permet de prendre seulement les chiffres 
- * Ensuite le value === '' force l'utilisateur a remplir le champ 
+ * L'addEventListener nous permet de prendre seulement les chiffres
+ * Ensuite le value === '' force l'utilisateur a remplir le champ
  * Enfin les value < 0 et > 100 permette de cibler le chiffre voulu
+ * Slice permet de limiter le nombre de caractère a 2 maximum
  * @returns
  */
 
 function validationQuantity() {
   formQuantity.addEventListener('input', function (e) {
-    this.value = this.value.replace(/[^0-9]/g, '');
+    formQuantity.value = this.value.slice(0, 2).replace(/[^0-9]/g, '');
   });
   if (
     formQuantity.value === '' ||
@@ -131,9 +132,9 @@ function validationQuantity() {
 }
 
 /**
- * Ici nous allons chercher tous les input de nom location 
+ * Ici nous allons chercher tous les input de nom location
  * Et on demande qu'au moins un champ soit valide pour passer en true
- * @returns 
+ * @returns
  */
 
 function validationLocation() {
@@ -150,9 +151,9 @@ function validationLocation() {
 }
 
 /**
- * Ici nous avons la même chose que la fonction au dessus 
+ * Ici nous avons la même chose que la fonction au dessus
  * Sauf qu'elle vise les input de nom condition
- * @returns 
+ * @returns
  */
 
 function validationCondition() {
@@ -169,9 +170,9 @@ function validationCondition() {
 }
 
 /**
- * Ici nous allons retirer le comportement par défaut de submit 
- * En effet lorsque la modal est complètement valide, l'envoi du formulaire ferme la modale automatiquement 
- * Et on en a besoin pour le message de remerciement 
+ * Ici nous allons retirer le comportement par défaut de submit
+ * En effet lorsque la modal est complètement valide, l'envoi du formulaire ferme la modale automatiquement
+ * Et on en a besoin pour le message de remerciement
  */
 
 formulary.addEventListener('submit', function (ev) {
@@ -179,10 +180,10 @@ formulary.addEventListener('submit', function (ev) {
 });
 
 /**
- * Ici nous allons prends toutes les fonctions plus haute qui concerne le formulaire 
+ * Ici nous allons prends toutes les fonctions plus haute qui concerne le formulaire
  * Nous allons les appeler une par une et dans le return donner le resultat de chacune
  * Sachant que chaque fonction est indépendante nous ne ferons ici qu'un regroupement
- * @returns 
+ * @returns
  */
 
 function validate() {
@@ -206,7 +207,7 @@ function validate() {
 }
 
 /**
- * Enfin la dernière fonction présente lors du clic de validation du formulaire dans l'html 
+ * Enfin la dernière fonction présente lors du clic de validation du formulaire dans l'html
  * Nous fait parvenir la fonction validate
  * Si tout est bon nous aurons le message de remerciement qui apparaitra et le contenu de la modale disparaitra
  */
@@ -218,6 +219,5 @@ function checkValidation() {
     // Afficher l'élément souhaité à la place de la modale
 
     modalValidate.style.display = 'flex';
-  } else {
   }
 }

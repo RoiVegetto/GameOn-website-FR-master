@@ -14,6 +14,7 @@ const formData = document.querySelectorAll('.formData');
 const modalClose = document.querySelector('span.close');
 const form = document.getElementById('form');
 const finish = document.querySelector('.finish');
+const hero = document.getElementById('hero');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener('click', launchModal));
@@ -21,6 +22,9 @@ modalBtn.forEach((btn) => btn.addEventListener('click', launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = 'block';
+  if (window.innerWidth < 500) {
+    hero.style.display = 'none';
+  }
 }
 
 modalClose.addEventListener('click', closeModal);
@@ -47,4 +51,5 @@ function closeModal() {
   form.reset();
   formulary.style.visibility = 'visible';
   modalValidate.style.display = 'none';
+  hero.style.display = 'block';
 }

@@ -51,5 +51,5 @@ function closeModal() {
   form.reset();
   formulary.style.visibility = 'visible';
   modalValidate.style.display = 'none';
-  hero.style.display = 'block';
+  hero.style.display = 'grid';
 }
